@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id            String    @id
+  shop          String
+  state         String
+  isOnline      Boolean   @default(false)
+  scope         String?
+  expires       DateTime?
+  accessToken   String
+  userId        BigInt?
+  firstName     String?
+  lastName      String?
+  email         String?
+  accountOwner  Boolean   @default(false)
+  locale        String?
+  collaborator  Boolean?  @default(false)
+  emailVerified Boolean?  @default(false)
+  model_status  String?   // <-- Add this line
+  latest_cursor String?
+}
+
+model OrderRecord {
+  id             Int      @id @default(autoincrement())
+  orderId        String   @unique
+  storedomain_id String?
+  orderName      String
+  address1       String?
+  address2       String?
+  city           String?
+  province       String?
+  country        String?
+  zip            String?
+  totalAmount    String?
+  currency       String?
+  awb            String?
+  deliveryStatus String?   // <-- Add this line for AWB status
+  ml_results     Float?
+  training_data  Boolean?
+  orderDate      DateTime?
+  cursor         String?  
+}
+
+model StoreProgress {
+  id           Int      @id @default(autoincrement())
+  shopId       String   @unique
+  progress     Int      @default(0) // 0-100
+  offlineToken String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
