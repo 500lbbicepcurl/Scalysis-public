@@ -3,11 +3,12 @@
 client_id = "e7d7dcd55bf15afe7df353a1c8507dd6"
 name = "Scalysis"
 handle = "scalysis-4"
-application_url = "https://Scalysis-public.onrender.com/"
+application_url = "https://scalysis-public.onrender.com"
 embedded = true
 
 [build]
 include_config_on_deploy = true
+automatically_update_urls_on_dev = true
 
 [webhooks]
 api_version = "2025-04"
@@ -25,10 +26,11 @@ api_version = "2025-04"
 scopes = "read_orders,read_all_orders,write_orders"
 
 [auth]
-redirect_urls = [ "https://Scalysis-public.onrender.com/auth/callback",
-                  "https://Scalysis-public.onrender.com/auth/shopify/callback", 
-                  "https://Scalysis-public.onrender.com/api/auth/callback" 
-                ]
+redirect_urls = [
+  "https://scalysis-public.onrender.com/auth/callback",
+  "https://scalysis-public.onrender.com/auth/shopify/callback",
+  "https://scalysis-public.onrender.com/api/auth/callback"
+]
 
 [pos]
 embedded = false
