@@ -2,7 +2,7 @@
 
 client_id = "e7d7dcd55bf15afe7df353a1c8507dd6"
 name = "Scalysis"
-handle = "scalysis-4"
+handle = "scalysis-v1"
 application_url = "https://scalysis-public.onrender.com"
 embedded = true
 
